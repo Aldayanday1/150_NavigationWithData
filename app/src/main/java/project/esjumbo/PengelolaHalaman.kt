@@ -43,6 +43,7 @@ fun EsJumboAppBar(
     TopAppBar(
         title = { Text(stringResource(id = R.string.app_name))},
         colors = TopAppBarDefaults.mediumTopAppBarColors(
+            containerColor =
             MaterialTheme.colorScheme.primaryContainer
         ),
         modifier = modifier,
@@ -85,6 +86,7 @@ fun EsJumboApp(
                     }
                 )
             }
+
             composable(route = PengelolaHalaman.Rasa.name){
                 val context = LocalContext.current
                 HalamanSatu(

@@ -17,12 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import project.esjumbo.data.ContactUiState
 import project.esjumbo.data.OrderUIState
 import project.esjumbo.ui.komponen.FormatLabelHarga
 
 @Composable
 fun HalamanDua(
     orderUiState: OrderUIState,
+    contactUiState: ContactUiState,
     onCancelButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ){

@@ -27,6 +27,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import project.esjumbo.data.SumberData.flavors
 import androidx.lifecycle.viewmodel.compose.viewModel
+import project.esjumbo.data.ContactUiState
 
 
 enum class PengelolaHalaman {
@@ -114,7 +115,7 @@ fun EsJumboApp(
                     onSelectionChanged = {viewModel.setRasa(it)},
                     onConfirmButtonClicked = {viewModel.setJumlah(it)},
                     onNextButtonClicked = {navController.navigate(PengelolaHalaman.Summary.name)},
-                    onCancelButtonClicked = {cancelOrderAndNavigateToHome(
+                    onCancelButtonClicked = {cancelOrderAndNavigateToForm(
                         viewModel,
                         navController,
                     )},
@@ -124,18 +125,19 @@ fun EsJumboApp(
             composable(route = PengelolaHalaman.Summary.name){
                 HalamanDua(
                     orderUiState = uiState,
+                    contactUiState = uiStateForm,
                     onCancelButtonClicked = {cancelOrderAndNavigateToRasa(navController)},)
             }
         }
     }
 }
 
-private fun cancelOrderAndNavigateToHome(
+private fun cancelOrderAndNavigateToForm(
     viewModel: OrderViewModel,
     navController: NavHostController
 ){
     viewModel.resetOrder()
-    navController.popBackStack(PengelolaHalaman.Home.name, inclusive = false)
+    navController.popBackStack(PengelolaHalaman.Form.name, inclusive = false)
 }
 
 private fun cancelOrderAndNavigateToRasa(

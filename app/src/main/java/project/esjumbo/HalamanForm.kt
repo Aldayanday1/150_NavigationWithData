@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -72,5 +73,9 @@ fun HalamanForm(
         )
 
         Spacer(modifier = Modifier.height(35.dp))
+
+        Button(onClick = { onSubmitButtonClicked(listData) }) {
+            Text(text = stringResource(id = R.string.btn_submit))
+        }
     }
 }

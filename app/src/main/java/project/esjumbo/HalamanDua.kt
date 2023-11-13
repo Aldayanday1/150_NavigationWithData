@@ -43,18 +43,21 @@ fun HalamanDua(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ){
             Column {
-                Text(text = stringResource(id = R.string.nama))
+                Text(text = stringResource (id = R.string.nama), fontWeight = FontWeight.Bold)
                 Text(text = contactUiState.nama)
                 Divider(thickness = dimensionResource(R.dimen.thickness_divider))
+                Spacer(modifier = Modifier.height(15.dp))
 
-                Text(text = stringResource(id = R.string.notlp))
+                Text(text = stringResource(id = R.string.notlp),fontWeight = FontWeight.Bold)
                 Text(text = contactUiState.tlp)
                 Divider(thickness = dimensionResource(R.dimen.thickness_divider))
+                Spacer(modifier = Modifier.height(15.dp))
 
-                Text(text = stringResource(id = R.string.alamat))
+                Text(text = stringResource(id = R.string.alamat), fontWeight = FontWeight.Bold)
                 Text(text = contactUiState.alamat)
+                Divider(thickness = dimensionResource(R.dimen.thickness_divider))
+                Spacer(modifier = Modifier.height(15.dp))
             }
-            Divider(thickness = dimensionResource(R.dimen.thickness_divider))
             items.forEach{item ->
                 Column {
                     Text (item.first.uppercase())

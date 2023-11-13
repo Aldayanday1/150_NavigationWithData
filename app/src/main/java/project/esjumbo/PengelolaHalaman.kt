@@ -90,7 +90,12 @@ fun EsJumboApp(
                 )
             }
             composable(route = PengelolaHalaman.Form.name){
+                HalamanForm(
+                    onSubmitButtonClicked = {
 
+                    } ) {
+
+                }
             }
 
             composable(route = PengelolaHalaman.Rasa.name){

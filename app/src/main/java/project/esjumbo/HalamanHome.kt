@@ -5,8 +5,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -50,18 +52,22 @@ fun HalamanHome (
             Column (horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)){
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_height)))
                 Image(
                     painter = image,
                     contentDescription = null,
                     contentScale = ContentScale.Crop
                 )
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_height)))
                 Text(
                     text = "es teh",
                     color = Color.DarkGray,
                     fontSize = 35.sp,
+                    fontFamily = FontFamily.Cursive,
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                 )
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_height)))
                 Text(
                     text = "Manis",
                     color = Color.DarkGray,

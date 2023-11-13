@@ -42,9 +42,11 @@ fun HalamanForm(
 
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Top,
         modifier = Modifier.fillMaxSize()
     ) {
+
+        Spacer(modifier = Modifier.height(125.dp))
 
         Text(text = "Data Pelanggan", modifier = Modifier.padding(bottom = 25.dp))
 

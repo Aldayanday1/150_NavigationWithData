@@ -34,6 +34,7 @@ enum class PengelolaHalaman {
     Summary
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EsJumboAppBar(
     bisaNavigasiBack: Boolean,
@@ -60,6 +61,7 @@ fun EsJumboAppBar(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EsJumboApp(
     viewModel: OrderViewModel = viewModel(),

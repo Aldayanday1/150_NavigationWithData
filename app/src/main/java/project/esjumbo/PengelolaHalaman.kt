@@ -30,6 +30,7 @@ import java.security.AccessController
 
 enum class PengelolaHalaman {
     Home,
+    Form,
     Rasa,
     Summary
 }
@@ -87,6 +88,9 @@ fun EsJumboApp(
                         navController.navigate(PengelolaHalaman.Rasa.name)
                     }
                 )
+            }
+            composable(route = PengelolaHalaman.Form.name){
+
             }
 
             composable(route = PengelolaHalaman.Rasa.name){

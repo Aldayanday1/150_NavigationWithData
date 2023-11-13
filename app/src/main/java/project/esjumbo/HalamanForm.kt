@@ -2,6 +2,7 @@ package project.esjumbo
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
@@ -72,10 +74,22 @@ fun HalamanForm(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
         )
 
-        Spacer(modifier = Modifier.height(35.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
-        Button(onClick = { onSubmitButtonClicked(listData) }) {
-            Text(text = stringResource(id = R.string.btn_submit))
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(R.dimen.padding_medium))
+                .weight(1f, false),
+            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+            verticalAlignment = Alignment.Bottom
+        ){
+            Button(onClick = onBackButtonClicked) {
+                Text(text = stringResource(id = R.string.btn_back))
+            }
+            Button(onClick = { onSubmitButtonClicked(listData) }) {
+                Text(text = stringResource(id = R.string.btn_submit))
+            }
         }
     }
 }

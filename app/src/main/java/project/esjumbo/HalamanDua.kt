@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import project.esjumbo.data.ContactUiState
 import project.esjumbo.data.OrderUIState
 import project.esjumbo.ui.komponen.FormatLabelHarga
@@ -41,6 +42,19 @@ fun HalamanDua(
             modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ){
+            Column {
+                Text(text = stringResource(id = R.string.nama))
+                Text(text = contactUiState.nama)
+                Divider(thickness = dimensionResource(R.dimen.thickness_divider))
+
+                Text(text = stringResource(id = R.string.notlp))
+                Text(text = contactUiState.tlp)
+                Divider(thickness = dimensionResource(R.dimen.thickness_divider))
+
+                Text(text = stringResource(id = R.string.alamat))
+                Text(text = contactUiState.alamat)
+            }
+            Divider(thickness = dimensionResource(R.dimen.thickness_divider))
             items.forEach{item ->
                 Column {
                     Text (item.first.uppercase())

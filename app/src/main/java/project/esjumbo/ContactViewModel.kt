@@ -7,13 +7,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import project.esjumbo.data.ContactUiState
 
-class ContactViewModel {
     class ContactViewModel: ViewModel() {
-        private val _stateUI = MutableStateFlow(ContactUiState())
-        val stateUI: StateFlow<ContactUiState> = _stateUI.asStateFlow()
+        private val _stateUIForm = MutableStateFlow(ContactUiState())
+        val stateUIForm: StateFlow<ContactUiState> = _stateUIForm.asStateFlow()
 
         fun setContact(list: MutableList<String>) {
-            _stateUI.update { stateSaatIni ->
+            _stateUIForm.update { stateSaatIni ->
                 stateSaatIni.copy(
                     nama = list[0],
                     alamat = list[1],
@@ -22,4 +21,3 @@ class ContactViewModel {
             }
         }
     }
-}

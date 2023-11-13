@@ -20,13 +20,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import project.esjumbo.data.SumberData.flavors
 import androidx.lifecycle.viewmodel.compose.viewModel
-import java.security.AccessController
+
 
 enum class PengelolaHalaman {
     Home,
@@ -66,6 +67,7 @@ fun EsJumboAppBar(
 @Composable
 fun EsJumboApp(
     viewModel: OrderViewModel = viewModel(),
+    viewModelForm: ContactViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ){
     Scaffold (
@@ -77,6 +79,8 @@ fun EsJumboApp(
         }
     ){innerPadding ->
         val uiState by viewModel.stateUI.collectAsState()
+        val uiStateForm by viewModelForm.stateUIForm.collectAsState()
+
         NavHost(
             navController = navController,
             startDestination = PengelolaHalaman.Home.name,
@@ -85,17 +89,22 @@ fun EsJumboApp(
             composable(route = PengelolaHalaman.Home.name){
                 HalamanHome (
                     onNextButtonClicked = {
-                        navController.navigate(PengelolaHalaman.Rasa.name)
+                        navController.navigate(PengelolaHalaman.Form.name)
                     }
                 )
             }
             composable(route = PengelolaHalaman.Form.name){
                 HalamanForm(
                     onSubmitButtonClicked = {
-
-                    } ) {
-
-                }
+                        viewModelForm.setContact(it)
+                        navController.navigate(PengelolaHalaman.Rasa.name)
+                    },
+                    onBackButtonClicked = {
+                        navController.popBackStack(
+                            PengelolaHalaman.Home.name,
+                            false
+                        )
+                    })
             }
 
             composable(route = PengelolaHalaman.Rasa.name){
